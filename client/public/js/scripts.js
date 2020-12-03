@@ -13,6 +13,7 @@ $(document).ready(function () {
     handlePreloader();
 
     if (localStorage.getItem("theme") == "dark") {
+        $(".toggle input").prop("checked", true);
         $("body").addClass("theme-dark");
     }
 

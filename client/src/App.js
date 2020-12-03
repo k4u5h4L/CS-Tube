@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SettingsBar from "./components/SettingsBar/SettingsBar";
 import Navbar from "./containers/Navbar/Navbar";
 import Footer from "./containers/Footer/Footer";
@@ -34,12 +29,8 @@ const App = () => {
                         <TandC />
                     </Route>
 
-                    <Route path="/:id" exact>
-                        <Temp />
-                    </Route>
-
                     <Route path="/">
-                        {/* <div className="preloader"></div> */}
+                        <div className="preloader"></div>
                         <SettingsBar />
 
                         <div className="main-wrapper">
@@ -64,12 +55,6 @@ const App = () => {
             </div>
         </Router>
     );
-};
-
-const Temp = () => {
-    let { id } = useParams();
-
-    return <h2>{id}</h2>;
 };
 
 export default App;

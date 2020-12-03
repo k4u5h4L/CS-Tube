@@ -23,7 +23,13 @@ const Slider = () => {
             fetch("http://localhost:8000/api/data/")
                 .then((res) => res.json())
                 .then((data) => {
-                    setItemData(data.items);
+                    let csItems = [];
+                    data.items.forEach((item) => {
+                        /CS:GO/g.test(item.snippet.title)
+                            ? csItems.push(item)
+                            : null;
+                    });
+                    setItemData(csItems);
                 })
                 .catch((err) => {
                     console.log(err);
