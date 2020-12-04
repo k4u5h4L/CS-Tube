@@ -37,7 +37,7 @@ const Slider = () => {
         };
 
         fetchData();
-    }, []);
+    });
 
     return (
         <div className="slide-wrapper">

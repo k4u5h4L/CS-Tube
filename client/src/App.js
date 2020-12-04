@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import SettingsBar from "./components/SettingsBar/SettingsBar";
 import Navbar from "./containers/Navbar/Navbar";
 import Footer from "./containers/Footer/Footer";
@@ -18,40 +18,36 @@ const App = () => {
     return (
         <Router>
             <div>
-                <Switch>
-                    <Route path="/login" exact>
-                        <Login />
-                    </Route>
-                    <Route path="/register" exact>
-                        <Register />
-                    </Route>
-                    <Route path="/tandc" exact>
-                        <TandC />
-                    </Route>
+                {/* <Switch> */}
+                <Route path="/login" exact>
+                    <Login />
+                </Route>
+                <Route path="/register" exact>
+                    <Register />
+                </Route>
+                <Route path="/tandc" exact>
+                    <TandC />
+                </Route>
 
-                    <Route path="/">
-                        <div className="preloader"></div>
-                        <SettingsBar />
+                <Route path="/" exact>
+                    <div className="preloader"></div>
+                    <SettingsBar />
 
-                        <div className="main-wrapper">
-                            <Navbar />
-                            <Switch>
-                                <Route path="/" exact>
-                                    <Home />
-                                </Route>
+                    <div className="main-wrapper">
+                        <Navbar />
+                        {/* <Switch> */}
+                        <Route path="/" component={Home} exact />
 
-                                <Route path="/about" exact>
-                                    <h1>ABOUT</h1>
-                                </Route>
+                        <Route path="/about" exact>
+                            <h1>ABOUT</h1>
+                        </Route>
 
-                                <Route path="/v/:vId" exact>
-                                    <VideoInfo />
-                                </Route>
-                            </Switch>
-                            <Footer />
-                        </div>
-                    </Route>
-                </Switch>
+                        <Route path="/v/:vId" component={VideoInfo} exact />
+                        {/* </Switch> */}
+                        <Footer />
+                    </div>
+                </Route>
+                {/* </Switch> */}
             </div>
         </Router>
     );
