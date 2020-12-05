@@ -24,10 +24,13 @@ const Slider = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     let csItems = [];
+                    // data.items.forEach((item) => {
+                    //     /CS:GO/g.test(item.snippet.title)
+                    //         ? csItems.push(item)
+                    //         : null;
+                    // });
                     data.items.forEach((item) => {
-                        /CS:GO/g.test(item.snippet.title)
-                            ? csItems.push(item)
-                            : null;
+                        csItems.push(item);
                     });
                     setItemData(csItems);
                 })

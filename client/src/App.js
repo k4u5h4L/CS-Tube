@@ -30,7 +30,7 @@ const App = () => {
                 </Route>
 
                 <Route path="/" exact>
-                    <div className="preloader"></div>
+                    {/* <div className="preloader"></div> */}
                     <SettingsBar />
 
                     <div className="main-wrapper">
